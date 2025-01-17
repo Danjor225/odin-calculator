@@ -2,27 +2,37 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#display-container{
+#container{
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    justify-content: center;
 }
+
 
 #display{
     border: 2px solid black;
     width: 300px;
     height: 100px;
-    margin-bottom: 10px;
+    
 }
 
 .clear-button{
     padding: 10px 50px;
     font-size: large;
+    margin: 10px;
 }
 
 #buttons-container{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    width: 300px;
+}
+
+.number, .operator{
+    margin: 1px 1px;
+    font-size: large;
+    width: 27px;
+    height: auto;
 }
