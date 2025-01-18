@@ -11,6 +11,7 @@
     border: 2px solid black;
     padding: 10px;
     text-align: center;
+    background-color: antiquewhite;
 }
 
 
@@ -21,6 +22,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: white;
     
 }
 
@@ -41,11 +43,13 @@
     align-items: center;
     justify-content: space-evenly;
     width: 300px;
+    
 }
 
 #numbers-container{
     border: 3px solid black;
     padding: 5px;
+    background-color: white;
 }
 
 .number{
@@ -62,11 +66,12 @@
 
 .operator{
     margin: 3px 3px;
-    font-size: x-large;
-    width: 27px;
-    height: auto;
+    font-size: 30px;
+    width: 35px;
+
+   
 }
 
 .equals-button{
-    width: 65px;
+    width: 80px;
 }
