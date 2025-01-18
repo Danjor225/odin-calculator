@@ -56,7 +56,7 @@ operatorContainer.addEventListener("click", (event) => {
         alert("Only one operator at a time")
     } else {
        
-        num1 = parseInt(display.textContent)
+        assignVariable("num1", display.textContent)
         display.textContent += " " + event.target.textContent
         operatorUsed = true
     }
@@ -97,8 +97,8 @@ function assignVariable(globalVariable, toAssign){
     if(globalVariable == "operator"){
         operator = toAssign
     } else if (globalVariable == "num1"){
-        num1 = toAssign
+        num1 = parseInt(toAssign)
     } else if (globalVariable == "num2"){
-        num2 = toAssign
+        num2 = parseInt(toAssign)
     }
 }
