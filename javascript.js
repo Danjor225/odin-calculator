@@ -41,5 +41,8 @@ const display = document.querySelector("#display")
 // Interactivity of Buttons
 
 buttonContainer.addEventListener("click", (event) => {
-    display.textContent = event.target.textContent
+    if(display.textContent === "DISPLAY"){
+        display.textContent = ""
+    }
+    display.textContent += event.target.textContent
 })
