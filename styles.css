@@ -10,12 +10,21 @@
 }
 
 
-#display{
+#display-container{
     border: 2px solid black;
     width: 300px;
     height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
 }
+
+#display{
+    font-weight: bolder;
+    font-size: x-large;
+}
+
 
 .clear-button{
     padding: 10px 50px;
