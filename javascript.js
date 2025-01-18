@@ -71,8 +71,13 @@ operatorContainer.addEventListener("click", (event) => {
         if(!checkAllNumbersAssigned()){
             alert("Please enter your full calculation")
         } else {
+            if(checkZeroDivision()){
+                alert("Cannot divide by zero.")
+                clearVariables()
+                clearDisplay()
+               } else {
             calculation()
-            display.textContent = total;
+            display.textContent = total;}
            
         }
        
@@ -86,11 +91,18 @@ operatorContainer.addEventListener("click", (event) => {
         } 
         // Second Operator click instead of =
         else if (num2Text != ""){
-           
+
+           if(checkZeroDivision()){
+            alert("Cannot divide by zero.")
+            clearVariables()
+            clearDisplay()
+           } else {
             calculation()
             operator = event.target.textContent
             display.textContent = total + " " + operator + " ";
             operatorUsed = true;
+           }
+           
             
         }
         // Otherwise assign operator and display the operator
@@ -163,6 +175,7 @@ function assignVariable(globalVariable, toAssign){
 }
 
 function calculation(){
+
     num1 = parseFloat(num1Text)
     num2 = parseFloat(num2Text)
     total = operate()
@@ -170,6 +183,17 @@ function calculation(){
     clearVariables()
     clearDisplay()
     num1Text = total
+    
+    
+}
+
+function checkZeroDivision(){
+
+    if((num1Text == "0" || num2Text == "0") && operator == "/"){
+        return true
+    } else {
+        return false
+    }
 }
 
 function roundToFourDecimals(num){
