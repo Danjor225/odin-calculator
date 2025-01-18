@@ -30,11 +30,16 @@
     width: 300px;
 }
 
+#numbers-container{
+    border: 3px solid black;
+    padding: 5px;
+}
+
 .number{
     margin: 2px 2px;
-    font-size: large;
+    font-size: larger;
     width: 27px;
-    height: auto;
+    /* height: auto; */
 }
 
 #zero-row{
