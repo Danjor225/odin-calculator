@@ -41,8 +41,23 @@ const display = document.querySelector("#display")
 // Interactivity of Buttons
 
 buttonContainer.addEventListener("click", (event) => {
-    if(display.textContent === "DISPLAY"){
-        display.textContent = ""
+    if(checkFirstDisplay){
+        clearDisplay()
     }
     display.textContent += event.target.textContent
 })
+
+
+// Useful Functions
+function checkFirstDisplay(){
+    if(display.textContent === "DISPLAY"){
+        return true
+    } else {
+        return false
+    }
+}
+
+function clearDisplay(){
+        display.textContent = ""
+    
+}
