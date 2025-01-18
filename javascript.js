@@ -36,6 +36,7 @@ function operate(operator, num1, num2){
 // Element Variables
 const buttonContainer = document.querySelector("#buttons-container")
 const display = document.querySelector("#display")
+const operatorContainer = document.querySelector("#operator-container")
 
 
 // Interactivity of Buttons
@@ -45,6 +46,12 @@ buttonContainer.addEventListener("click", (event) => {
         clearDisplay()
     }
     display.textContent += event.target.textContent
+})
+
+operatorContainer.addEventListener("click", (event) => {
+    if(checkFirstDisplay() || checkNoNum()){
+        alert("Please enter a number before using an operator")
+    }
 })
 
 
@@ -60,4 +67,10 @@ function checkFirstDisplay(){
 function clearDisplay(){
         display.textContent = ""
     
+}
+
+function checkNoNum(){
+    if(display.textContent == ""){
+        return true 
+    } else {return false }
 }
