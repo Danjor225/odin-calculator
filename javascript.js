@@ -55,6 +55,8 @@ operatorContainer.addEventListener("click", (event) => {
     } else if(operatorUsed){
         alert("Only one operator at a time")
     } else {
+       
+        num1 = parseInt(display.textContent)
         display.textContent += " " + event.target.textContent
         operatorUsed = true
     }
