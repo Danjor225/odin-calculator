@@ -1,6 +1,6 @@
 // Variables
-let num1 = 0;
-let num2 = 0;
+let num1;
+let num2;
 let operator = "+"
 
 // Calculus Functions
@@ -52,7 +52,7 @@ operatorContainer.addEventListener("click", (event) => {
     if(checkFirstDisplay() || checkNoNum()){
         alert("Please enter a number before using an operator")
     } else {
-        
+        display.textContent += " " + event.target.textContent
     }
 })
 
