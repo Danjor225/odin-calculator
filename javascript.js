@@ -84,13 +84,13 @@ operatorContainer.addEventListener("click", (event) => {
         } else if(operatorUsed){
             alert("Only one operator at a time")
         } 
-        // if num2 text assigned that means a second operator can  be used occur
+        // Second Operator click instead of =
         else if (num2Text != ""){
            
             calculation()
             operator = event.target.textContent
             display.textContent = total + " " + operator + " ";
-            
+            operatorUsed = true;
             
         }
         // Otherwise assign num1, operator and display the operator
