@@ -32,3 +32,13 @@ function operate(operator, num1, num2){
             divide(num1,num2);
     }
 }
+
+// Element Variables
+const buttonContainer = document.querySelector("#buttons-container")
+
+
+// Interactivity of Buttons
+
+buttonContainer.addEventListener("click", (event) => {
+    console.log(event)
+})
