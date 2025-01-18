@@ -66,14 +66,19 @@ numberContainer.addEventListener("click", (event) => {
 operatorContainer.addEventListener("click", (event) => {
     // If = is pressed
     if(event.target.textContent == "="){
-        num1 = parseFloat(num1Text)
-        num2 = parseFloat(num2Text)
-        total = operate()
-        clearVariables()
-        clearDisplay()
-        display.textContent = total;
-        console.log(total)
-        num1Text = total
+        if(checkFirstDisplay() || checkNoNum()){
+            alert("Please enter a number before using an operator")
+        } else {
+            num1 = parseFloat(num1Text)
+            num2 = parseFloat(num2Text)
+            total = operate()
+            clearVariables()
+            clearDisplay()
+            display.textContent = total;
+            console.log(total)
+            num1Text = total
+        }
+       
     } 
     // If an operator is pressed
     else {
@@ -93,7 +98,9 @@ operatorContainer.addEventListener("click", (event) => {
 })
 
 clearButton.addEventListener("click", () => {
-    
+    clearVariables()
+    clearDisplay()
+
 })
 
 // Useful Functions
