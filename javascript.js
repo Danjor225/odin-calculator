@@ -30,7 +30,7 @@ function operate(){
         return add(num1, num2);
     } else if (operator == "-"){
         return subtract(num1,num2)
-    } else if (operator == "*"){
+    } else if (operator == "x"){
         return multiply(num1,num2)
     } else if (operator == "/"){
         return divide(num1,num2);
@@ -63,6 +63,7 @@ numberContainer.addEventListener("click", (event) => {
 })
 
 operatorContainer.addEventListener("click", (event) => {
+    // If = is pressed
     if(event.target.textContent == "="){
         num1 = parseFloat(num1Text)
         num2 = parseFloat(num2Text)
@@ -70,8 +71,11 @@ operatorContainer.addEventListener("click", (event) => {
         clearVariables()
         clearDisplay()
         display.textContent = total;
+        console.log(total)
         num1Text = total
-    } else {
+    } 
+    // If an operator is pressed
+    else {
         if(checkFirstDisplay() || checkNoNum()){
             alert("Please enter a number before using an operator")
         } else if(operatorUsed){
