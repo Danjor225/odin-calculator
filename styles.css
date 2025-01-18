@@ -30,8 +30,8 @@
     width: 300px;
 }
 
-.number, .operator{
-    margin: 1px 1px;
+.number{
+    margin: 2px 2px;
     font-size: large;
     width: 27px;
     height: auto;
@@ -40,4 +40,15 @@
 #zero-row{
    text-align: right;
 
+}
+
+.operator{
+    margin: 3px 3px;
+    font-size: x-large;
+    width: 27px;
+    height: auto;
+}
+
+.equals-button{
+    width: 65px;
 }
