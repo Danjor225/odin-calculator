@@ -41,6 +41,7 @@ function operate(){
 const numberContainer = document.querySelector("#numbers-container")
 const display = document.querySelector("#display")
 const operatorContainer = document.querySelector("#operator-container")
+const clearButton = document.querySelector(".clear-button")
 
 
 
@@ -91,6 +92,9 @@ operatorContainer.addEventListener("click", (event) => {
     
 })
 
+clearButton.addEventListener("click", () => {
+    
+})
 
 // Useful Functions
 function checkFirstDisplay(){
