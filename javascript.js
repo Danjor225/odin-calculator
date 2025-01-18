@@ -93,7 +93,7 @@ operatorContainer.addEventListener("click", (event) => {
             operatorUsed = true;
             
         }
-        // Otherwise assign num1, operator and display the operator
+        // Otherwise assign operator and display the operator
         else {
            
             assignVariable("operator", event.target.textContent)
@@ -118,8 +118,6 @@ function checkFirstDisplay(){
         return false
     }
 }
-
-
 
 function checkNoNum(){
     if(display.textContent == ""){
@@ -168,7 +166,13 @@ function calculation(){
     num1 = parseFloat(num1Text)
     num2 = parseFloat(num2Text)
     total = operate()
+    total = roundToFourDecimals(total)
     clearVariables()
     clearDisplay()
     num1Text = total
+}
+
+function roundToFourDecimals(num){
+
+       return Math.round(num * 10000) / 10000
 }
