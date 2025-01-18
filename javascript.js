@@ -51,6 +51,8 @@ numberContainer.addEventListener("click", (event) => {
 operatorContainer.addEventListener("click", (event) => {
     if(checkFirstDisplay() || checkNoNum()){
         alert("Please enter a number before using an operator")
+    } else {
+        
     }
 })
 
@@ -73,4 +75,22 @@ function checkNoNum(){
     if(display.textContent == ""){
         return true 
     } else {return false }
+}
+
+function checkFirstNumInput(){
+    if(num1 != ""){
+        return true
+    } else {
+        return false
+    }
+}
+
+function assignVariable(globalVariable, toAssign){
+    if(globalVariable == "operator"){
+        operator = toAssign
+    } elseif (globalVariable == "num1");{
+        num1 = toAssign
+    }elseif (globalVariable == "num2");{
+        num2 = toAssign
+    }
 }
