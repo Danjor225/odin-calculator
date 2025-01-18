@@ -1,6 +1,6 @@
 // Variables
-let num1;
-let num2;
+let num1 = "";
+let num2 = "";
 let operator = "+"
 let operatorUsed = false
 
@@ -94,7 +94,7 @@ function checkNoNum(){
 }
 
 function checkFirstNumInput(){
-    if(num1 != ""){
+    if(num1 == ""){
         return true
     } else {
         return false
@@ -108,8 +108,8 @@ function assignVariable(globalVariable, toAssign){
         // assigned once an operator is clicked
         operator = toAssign
     } else if (globalVariable == "num1"){
-        //num 1 converted to integer after an operator is clicked
-        num1 = parseInt(toAssign)
+        //num 1 assigned after operator clicked
+        num1 = toAssign
     } else if (globalVariable == "num2"){
         // store num2 as a string until = is clicked
         num2 += toAssign
