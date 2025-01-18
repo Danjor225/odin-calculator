@@ -48,6 +48,7 @@ const clearButton = document.querySelector(".clear-button")
 // Interactivity of Buttons
 
 numberContainer.addEventListener("click", (event) => {
+    operatorUsed = false
     if(checkFirstDisplay()){
         clearDisplay()
     }
@@ -75,7 +76,6 @@ operatorContainer.addEventListener("click", (event) => {
             clearVariables()
             clearDisplay()
             display.textContent = total;
-            console.log(total)
             num1Text = total
         }
        
@@ -86,7 +86,25 @@ operatorContainer.addEventListener("click", (event) => {
             alert("Please enter a number before using an operator")
         } else if(operatorUsed){
             alert("Only one operator at a time")
-        } else {
+        } 
+        // if num2 text assigned that means a second operator can  be used occur
+        else if (num2Text != ""){
+           
+            
+            num1 = parseFloat(num1Text)
+            num2 = parseFloat(num2Text)
+            total = operate()
+            clearVariables()
+            clearDisplay()
+            num1Text = total
+
+            operator = event.target.textContent
+            display.textContent = total + " " + operator + " ";
+            
+            
+        }
+        // Otherwise assign num1, operator and display the operator
+        else {
            
             assignVariable("num1", display.textContent)
             assignVariable("operator", event.target.textContent)
@@ -160,3 +178,4 @@ function assignVariable(globalVariable, toAssign){
         num2Text += toAssign
     }
 }
+
