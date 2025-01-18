@@ -66,8 +66,8 @@ numberContainer.addEventListener("click", (event) => {
 operatorContainer.addEventListener("click", (event) => {
     // If = is pressed
     if(event.target.textContent == "="){
-        if(checkFirstDisplay() || checkNoNum()){
-            alert("Please enter a number before using an operator")
+        if(!checkAllNumbersAssigned()){
+            alert("Please enter your full calculation")
         } else {
             num1 = parseFloat(num1Text)
             num2 = parseFloat(num2Text)
@@ -126,6 +126,12 @@ function checkFirstNumInput(){
     } else {
         return false
     }
+}
+
+function checkAllNumbersAssigned(){
+    if(num1Text == "" || num2Text == "") {
+        return false
+    } else {return true}
 }
 
 function clearDisplay(){
