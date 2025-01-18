@@ -64,11 +64,13 @@ numberContainer.addEventListener("click", (event) => {
 
 operatorContainer.addEventListener("click", (event) => {
     if(event.target.textContent == "="){
-        num1 = parseInt(num1Text)
-        num2 = parseInt(num2Text)
+        num1 = parseFloat(num1Text)
+        num2 = parseFloat(num2Text)
         total = operate()
+        clearVariables()
         clearDisplay()
         display.textContent = total;
+        num1Text = total
     } else {
         if(checkFirstDisplay() || checkNoNum()){
             alert("Please enter a number before using an operator")
@@ -95,10 +97,7 @@ function checkFirstDisplay(){
     }
 }
 
-function clearDisplay(){
-        display.textContent = ""
-    console.log("Display cleared")
-}
+
 
 function checkNoNum(){
     if(display.textContent == ""){
@@ -114,7 +113,19 @@ function checkFirstNumInput(){
     }
 }
 
+function clearDisplay(){
+    display.textContent = ""
+console.log("Display cleared")
+}
 
+function clearVariables(){
+    num1 == 0;
+    num1Text = "";
+    num2 = 0;
+    num2Text = "";
+    operator = ""
+    operatorUsed = false;
+}
 
 function assignVariable(globalVariable, toAssign){
     if(globalVariable == "operator"){
