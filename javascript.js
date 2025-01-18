@@ -46,7 +46,14 @@ numberContainer.addEventListener("click", (event) => {
     if(checkFirstDisplay){
         clearDisplay()
     }
-    display.textContent += event.target.textContent
+
+    if(checkFirstNumInput){
+        assignVariable("num2", event.target.textContent)
+        display.textContent += event.target.textContent
+    } else {
+        display.textContent += event.target.textContent
+    }
+    
 })
 
 operatorContainer.addEventListener("click", (event) => {
@@ -57,7 +64,8 @@ operatorContainer.addEventListener("click", (event) => {
     } else {
        
         assignVariable("num1", display.textContent)
-        display.textContent += " " + event.target.textContent
+        assignVariable("operator", event.target.textContent)
+        display.textContent += " " + event.target.textContent + " "
         operatorUsed = true
     }
 })
@@ -95,10 +103,13 @@ function checkFirstNumInput(){
 
 function assignVariable(globalVariable, toAssign){
     if(globalVariable == "operator"){
+        // assigned once an operator is clicked
         operator = toAssign
     } else if (globalVariable == "num1"){
+        //num 1 converted to integer after an operator is clicked
         num1 = parseInt(toAssign)
     } else if (globalVariable == "num2"){
-        num2 = parseInt(toAssign)
+        // store num2 as a string until = is clicked
+        num2 += toAssign
     }
 }
