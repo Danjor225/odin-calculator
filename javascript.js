@@ -27,13 +27,13 @@ function divide(num1, num2){
 
 function operate(){
     if(operator == "+"){
-        add(num1, num2);
+        return add(num1, num2);
     } else if (operator == "-"){
-        subtract(num1,num2)
+        return subtract(num1,num2)
     } else if (operator == "*"){
-        multiply(num1,num2)
+        return multiply(num1,num2)
     } else if (operator == "/"){
-            divide(num1,num2);
+        return divide(num1,num2);
     }
 }
 
@@ -41,6 +41,7 @@ function operate(){
 const numberContainer = document.querySelector("#numbers-container")
 const display = document.querySelector("#display")
 const operatorContainer = document.querySelector("#operator-container")
+
 
 
 // Interactivity of Buttons
@@ -62,17 +63,26 @@ numberContainer.addEventListener("click", (event) => {
 })
 
 operatorContainer.addEventListener("click", (event) => {
-    if(checkFirstDisplay() || checkNoNum()){
-        alert("Please enter a number before using an operator")
-    } else if(operatorUsed){
-        alert("Only one operator at a time")
+    if(event.target.textContent == "="){
+        num1 = parseInt(num1Text)
+        num2 = parseInt(num2Text)
+        total = operate()
+        clearDisplay()
+        display.textContent = total;
     } else {
-       
-        assignVariable("num1", display.textContent)
-        assignVariable("operator", event.target.textContent)
-        display.textContent += " " + event.target.textContent + " "
-        operatorUsed = true
+        if(checkFirstDisplay() || checkNoNum()){
+            alert("Please enter a number before using an operator")
+        } else if(operatorUsed){
+            alert("Only one operator at a time")
+        } else {
+           
+            assignVariable("num1", display.textContent)
+            assignVariable("operator", event.target.textContent)
+            display.textContent += " " + event.target.textContent + " "
+            operatorUsed = true
+        }
     }
+    
 })
 
 
