@@ -58,7 +58,7 @@ numberContainer.addEventListener("click", (event) => {
     } else {
         assignVariable("num2", event.target.textContent)
         display.textContent += event.target.textContent
-        operatorUsed=false;
+        
         
         
     }
@@ -86,7 +86,7 @@ operatorContainer.addEventListener("click", (event) => {
     else {
         if(checkFirstDisplay() || checkNoNum()){
             alert("Please enter a number before using an operator")
-        } else if(operatorUsed){
+        } else if(operatorUsed && num2Text == ""){
             alert("Only one operator at a time")
         } 
         // Second Operator click instead of =
