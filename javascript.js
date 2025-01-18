@@ -70,13 +70,9 @@ operatorContainer.addEventListener("click", (event) => {
         if(!checkAllNumbersAssigned()){
             alert("Please enter your full calculation")
         } else {
-            num1 = parseFloat(num1Text)
-            num2 = parseFloat(num2Text)
-            total = operate()
-            clearVariables()
-            clearDisplay()
+            calculation()
             display.textContent = total;
-            num1Text = total
+           
         }
        
     } 
@@ -90,14 +86,7 @@ operatorContainer.addEventListener("click", (event) => {
         // if num2 text assigned that means a second operator can  be used occur
         else if (num2Text != ""){
            
-            
-            num1 = parseFloat(num1Text)
-            num2 = parseFloat(num2Text)
-            total = operate()
-            clearVariables()
-            clearDisplay()
-            num1Text = total
-
+            calculation()
             operator = event.target.textContent
             display.textContent = total + " " + operator + " ";
             
@@ -121,7 +110,7 @@ clearButton.addEventListener("click", () => {
 
 })
 
-// Useful Functions
+// Check Functions
 function checkFirstDisplay(){
     if(display.textContent == "DISPLAY"){
         return true
@@ -152,6 +141,9 @@ function checkAllNumbersAssigned(){
     } else {return true}
 }
 
+
+//Useful Functions
+
 function clearDisplay(){
     display.textContent = ""
 console.log("Display cleared")
@@ -179,3 +171,11 @@ function assignVariable(globalVariable, toAssign){
     }
 }
 
+function calculation(){
+    num1 = parseFloat(num1Text)
+    num2 = parseFloat(num2Text)
+    total = operate()
+    clearVariables()
+    clearDisplay()
+    num1Text = total
+}
