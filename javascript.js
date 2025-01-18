@@ -1,6 +1,9 @@
 // Variables
-let num1 = "";
-let num2 = "";
+let num1Text = "";
+let num2Text = "";
+let num1 = 0;
+let num2 = 0;
+let total = 0;
 let operator = "+"
 let operatorUsed = false
 
@@ -52,7 +55,7 @@ numberContainer.addEventListener("click", (event) => {
     } else {
         assignVariable("num2", event.target.textContent)
         display.textContent += event.target.textContent
-        console.log(num2)
+        
         
     }
     
@@ -94,7 +97,7 @@ function checkNoNum(){
 }
 
 function checkFirstNumInput(){
-    if(num1 == ""){
+    if(num1Text == ""){
         return true
     } else {
         return false
@@ -109,9 +112,9 @@ function assignVariable(globalVariable, toAssign){
         operator = toAssign
     } else if (globalVariable == "num1"){
         //num 1 assigned after operator clicked
-        num1 = toAssign
+        num1Text = toAssign
     } else if (globalVariable == "num2"){
         // store num2 as a string until = is clicked
-        num2 += toAssign
+        num2Text += toAssign
     }
 }
