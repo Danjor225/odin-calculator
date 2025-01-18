@@ -2,6 +2,7 @@
 let num1;
 let num2;
 let operator = "+"
+let operatorUsed = false
 
 // Calculus Functions
 function add(num1, num2){
@@ -21,14 +22,14 @@ function divide(num1, num2){
     return num1 / num2;
 }
 
-function operate(operator, num1, num2){
+function operate(){
     if(operator == "+"){
         add(num1, num2);
-    } elseif (operator == "-");{
+    } else if (operator == "-"){
         subtract(num1,num2)
-    } elseif (operator == "*");{
+    } else if (operator == "*"){
         multiply(num1,num2)
-    } elseif (operator == "/");{
+    } else if (operator == "/"){
             divide(num1,num2);
     }
 }
@@ -51,8 +52,11 @@ numberContainer.addEventListener("click", (event) => {
 operatorContainer.addEventListener("click", (event) => {
     if(checkFirstDisplay() || checkNoNum()){
         alert("Please enter a number before using an operator")
+    } else if(operatorUsed){
+        alert("Only one operator at a time")
     } else {
         display.textContent += " " + event.target.textContent
+        operatorUsed = true
     }
 })
 
@@ -85,12 +89,14 @@ function checkFirstNumInput(){
     }
 }
 
+
+
 function assignVariable(globalVariable, toAssign){
     if(globalVariable == "operator"){
         operator = toAssign
-    } elseif (globalVariable == "num1");{
+    } else if (globalVariable == "num1"){
         num1 = toAssign
-    }elseif (globalVariable == "num2");{
+    } else if (globalVariable == "num2"){
         num2 = toAssign
     }
 }
