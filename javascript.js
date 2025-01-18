@@ -48,16 +48,17 @@ const clearButton = document.querySelector(".clear-button")
 // Interactivity of Buttons
 
 numberContainer.addEventListener("click", (event) => {
-    operatorUsed = false
     if(checkFirstDisplay()){
         clearDisplay()
     }
 
-    if(checkFirstNumInput()){
+    if(!operatorUsed){
+        assignVariable("num1", event.target.textContent)
         display.textContent += event.target.textContent
     } else {
         assignVariable("num2", event.target.textContent)
         display.textContent += event.target.textContent
+        operatorUsed=false;
         
         
     }
@@ -95,7 +96,6 @@ operatorContainer.addEventListener("click", (event) => {
         // Otherwise assign num1, operator and display the operator
         else {
            
-            assignVariable("num1", display.textContent)
             assignVariable("operator", event.target.textContent)
             display.textContent += " " + event.target.textContent + " "
             operatorUsed = true
@@ -127,13 +127,6 @@ function checkNoNum(){
     } else {return false }
 }
 
-function checkFirstNumInput(){
-    if(num1Text == ""){
-        return true
-    } else {
-        return false
-    }
-}
 
 function checkAllNumbersAssigned(){
     if(num1Text == "" || num2Text == "") {
@@ -164,7 +157,7 @@ function assignVariable(globalVariable, toAssign){
         operator = toAssign
     } else if (globalVariable == "num1"){
         //num 1 assigned after operator clicked
-        num1Text = toAssign
+        num1Text += toAssign
     } else if (globalVariable == "num2"){
         // store num2 as a string until = is clicked
         num2Text += toAssign
