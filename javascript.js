@@ -35,10 +35,11 @@ function operate(operator, num1, num2){
 
 // Element Variables
 const buttonContainer = document.querySelector("#buttons-container")
+const display = document.querySelector("#display")
 
 
 // Interactivity of Buttons
 
 buttonContainer.addEventListener("click", (event) => {
-    console.log(event)
+    display.textContent = event.target.textContent
 })
