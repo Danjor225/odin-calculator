@@ -43,15 +43,17 @@ const operatorContainer = document.querySelector("#operator-container")
 // Interactivity of Buttons
 
 numberContainer.addEventListener("click", (event) => {
-    if(checkFirstDisplay){
+    if(checkFirstDisplay()){
         clearDisplay()
     }
 
-    if(checkFirstNumInput){
-        assignVariable("num2", event.target.textContent)
+    if(checkFirstNumInput()){
         display.textContent += event.target.textContent
     } else {
+        assignVariable("num2", event.target.textContent)
         display.textContent += event.target.textContent
+        console.log(num2)
+        
     }
     
 })
@@ -73,7 +75,7 @@ operatorContainer.addEventListener("click", (event) => {
 
 // Useful Functions
 function checkFirstDisplay(){
-    if(display.textContent === "DISPLAY"){
+    if(display.textContent == "DISPLAY"){
         return true
     } else {
         return false
@@ -82,7 +84,7 @@ function checkFirstDisplay(){
 
 function clearDisplay(){
         display.textContent = ""
-    
+    console.log("Display cleared")
 }
 
 function checkNoNum(){
