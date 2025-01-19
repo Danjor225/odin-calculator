@@ -191,7 +191,9 @@ function checkZeroDivision(){
 
     if((num1Text == "0" || num2Text == "0") && operator == "/"){
         return true
-    } else {
+    } else if (num1Text == "." || num2Text == "."){
+        return true 
+    }else {
         return false
     }
 }
