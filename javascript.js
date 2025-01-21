@@ -189,7 +189,7 @@ function calculation(){
 
 function checkZeroDivision(){
 
-    if((num1Text == "0" || num2Text == "0") && operator == "/"){
+    if(num2Text == "0" && operator == "/"){
         return true
     } else if (num1Text == "." || num2Text == "."){
         return true 
