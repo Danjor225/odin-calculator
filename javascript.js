@@ -4,7 +4,7 @@ let num2Text = "";
 let num1 = 0;
 let num2 = 0;
 let total = 0;
-let operator = "+"
+let operator = ""
 let operatorUsed = false
 
 // Calculus Functions
@@ -126,8 +126,13 @@ clearButton.addEventListener("click", () => {
 
 delButton.addEventListener("click", () => {
 
+    deleteDisplay()
+    deleteVariable()
     
+   
 })
+
+
 
 // Check Functions
 function checkFirstDisplay(){
@@ -150,6 +155,8 @@ function checkAllNumbersAssigned(){
         return false
     } else {return true}
 }
+
+
 
 
 //Useful Functions
@@ -209,3 +216,26 @@ function roundToFourDecimals(num){
 
        return Math.round(num * 10000) / 10000
 }
+
+function deleteVariable(){
+
+   
+    if(num2Text != ""){
+        num2Text = num2Text.slice(0, -1)
+    } else if(operator != ""){
+        operator = operator.slice(0, -1) 
+        operatorUsed = false
+    }else if (num1Text != ""){
+        num1Text = num1Text.slice(0, -1)
+    }
+}
+
+function deleteDisplay(){
+
+    if(operator != "" && num2Text == ""){
+        display.textContent = display.textContent.slice(0,-3)
+    } else {
+        display.textContent = display.textContent.slice(0,-1)
+    }
+}
+
