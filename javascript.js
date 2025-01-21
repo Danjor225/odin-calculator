@@ -42,6 +42,7 @@ const numberContainer = document.querySelector("#numbers-container")
 const display = document.querySelector("#display")
 const operatorContainer = document.querySelector("#operator-container")
 const clearButton = document.querySelector(".clear-button")
+const delButton = document.querySelector(".backspace-button")
 
 
 
@@ -120,6 +121,12 @@ clearButton.addEventListener("click", () => {
     clearVariables()
     clearDisplay()
 
+})
+
+
+delButton.addEventListener("click", () => {
+
+    
 })
 
 // Check Functions
