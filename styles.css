@@ -38,6 +38,11 @@
     margin: 10px;
 }
 
+.backspace-button{
+    font-size: large;
+    padding: 5px 20px;
+}
+
 #buttons-container{
     display: flex;
     align-items: center;
