@@ -94,14 +94,14 @@ operatorContainer.addEventListener("click", (event) => {
         else if (num2Text != ""){
 
            if(checkZeroDivision()){
-            alert("Cannot divide by zero.")
-            clearVariables()
-            clearDisplay()
+                alert("Cannot divide by zero.")
+                clearVariables()
+                clearDisplay()
            } else {
             calculation()
-            operator = event.target.textContent
-            display.textContent = total + " " + operator + " ";
-            operatorUsed = true;
+                operator = event.target.textContent
+                display.textContent = total + " " + operator + " ";
+                operatorUsed = true;
            }
            
             
@@ -245,3 +245,14 @@ function deleteDisplay(){
     }
 }
 
+//Keyboard Implementation
+const numberCheck = "1234567890"
+
+document.addEventListener("keydown", (event) => {
+
+    if(numberCheck.includes(event.key) ){
+        console.log("Number Pressed "+ event.key)
+    }
+
+
+})
