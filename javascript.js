@@ -182,7 +182,7 @@ function calculation(){
     total = roundToFourDecimals(total)
     clearVariables()
     clearDisplay()
-    num1Text = total
+    num1Text = total.toString()
     
     
 }
