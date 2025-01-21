@@ -126,8 +126,13 @@ clearButton.addEventListener("click", () => {
 
 delButton.addEventListener("click", () => {
 
-    deleteDisplay()
-    deleteVariable()
+    if(checkNoNum() || checkFirstDisplay()){
+        alert("Nothing to delete")
+    } else {
+        deleteDisplay()
+        deleteVariable()
+    }
+   
     
    
 })
@@ -227,7 +232,8 @@ function deleteVariable(){
         operatorUsed = false
     }else if (num1Text != ""){
         num1Text = num1Text.slice(0, -1)
-    }
+    } 
+
 }
 
 function deleteDisplay(){
