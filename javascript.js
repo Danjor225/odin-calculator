@@ -153,7 +153,7 @@ console.log("Display cleared")
 }
 
 function clearVariables(){
-    num1 == 0;
+    num1 = 0;
     num1Text = "";
     num2 = 0;
     num2Text = "";
