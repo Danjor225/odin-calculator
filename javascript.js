@@ -247,11 +247,22 @@ function deleteDisplay(){
 
 //Keyboard Implementation
 const numberCheck = "1234567890"
+const operatorCheck = "+-/*"
 
 document.addEventListener("keydown", (event) => {
 
     if(numberCheck.includes(event.key) ){
         console.log("Number Pressed "+ event.key)
+        //Code To Display Numbers
+    } else if (operatorCheck.includes(event.key)){
+        //Code To Display Operator or Calculate
+        console.log("Operator Pressed " + event.key)
+    } else if (event.key === "Backspace"){
+        //Delete Code
+        console.log("Backspace Pressed " + event.key)
+    } else {
+        //Not a button you can use
+        alert("Not a Button than can be used by this calculator")
     }
 
 
