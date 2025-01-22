@@ -287,11 +287,7 @@ document.addEventListener("keyup", (event) => {
     } else if(event.key === "=" || event.key === "Enter"){
         //Equals Code
         equalsPressed()
-    } else {
-        //Not a button you can use
-        // alert("Not a Button than can be used by this calculator")
-        console.log(event.key)
-    }
+    } 
 
 
 })
