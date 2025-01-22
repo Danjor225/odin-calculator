@@ -61,34 +61,7 @@ operatorContainer.addEventListener("click", (event) => {
     } 
     // If an operator is pressed
     else {
-        if(checkFirstDisplay() || checkNoNum()){
-            alert("Please enter a number before using an operator")
-        } else if(operatorUsed && num2Text == ""){
-            alert("Only one operator at a time")
-        } 
-        // Second Operator click instead of =
-        else if (num2Text != ""){
-
-           if(checkZeroDivision()){
-                alert("Cannot divide by zero.")
-                clearVariables()
-                clearDisplay()
-           } else {
-            calculation()
-                operator = event.target.textContent
-                display.textContent = total + " " + operator + " ";
-                operatorUsed = true;
-           }
-           
-            
-        }
-        // Otherwise assign operator and display the operator
-        else {
-           
-            assignVariable("operator", event.target.textContent)
-            display.textContent += " " + event.target.textContent + " "
-            operatorUsed = true
-        }
+        operatorPressed(event.target.textContent)
     }
     
 })
@@ -102,13 +75,7 @@ clearButton.addEventListener("click", () => {
 
 delButton.addEventListener("click", () => {
 
-    if(checkNoNum() || checkFirstDisplay()){
-        alert("Nothing to delete")
-    } else {
-        deleteDisplay()
-        deleteVariable()
-    }
-   
+    deletePressed()
     
    
 })
@@ -191,6 +158,48 @@ function equalsPressed(){
 
 }
 
+function deletePressed(){
+    if(checkNoNum() || checkFirstDisplay()){
+        alert("Nothing to delete")
+    } else {
+        deleteDisplay()
+        deleteVariable()
+    }
+   
+}
+
+function operatorPressed(target){
+
+    if(checkFirstDisplay() || checkNoNum()){
+        alert("Please enter a number before using an operator")
+    } else if(operatorUsed && num2Text == ""){
+        alert("Only one operator at a time")
+    } 
+    // Second Operator click instead of =
+    else if (num2Text != ""){
+
+       if(checkZeroDivision()){
+            alert("Cannot divide by zero.")
+            clearVariables()
+            clearDisplay()
+       } else {
+        calculation()
+            operator = target
+            display.textContent = total + " " + operator + " ";
+            operatorUsed = true;
+       }
+       
+        
+    }
+    // Otherwise assign operator and display the operator
+    else {
+       
+        assignVariable("operator", target)
+        display.textContent += " " + target + " "
+        operatorUsed = true
+    }
+}
+
 function assignVariable(globalVariable, toAssign){
     if(globalVariable == "operator"){
         // assigned once an operator is clicked
@@ -263,21 +272,20 @@ const operatorCheck = "+-/*"
 document.addEventListener("keydown", (event) => {
 
     if(numberCheck.includes(event.key) ){
-        console.log("Number Pressed "+ event.key)
         //Code To Display Numbers
         numberClicked(event.key)
     
     } else if (operatorCheck.includes(event.key)){
         //Code To Display Operator or Calculate
         console.log("Operator Pressed " + event.key)
+        operatorPressed(event.key)
     
     } else if (event.key === "Backspace"){
         //Delete Code
-        console.log("Backspace Pressed " + event.key)
+        deletePressed()
     
     } else if(event.key === "="){
         //Equals Code
-        console.log("Equals Pressed " + event.key)
         equalsPressed()
     } else {
         //Not a button you can use
