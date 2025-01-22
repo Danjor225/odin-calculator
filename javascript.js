@@ -49,21 +49,8 @@ const delButton = document.querySelector(".backspace-button")
 // Interactivity of Buttons
 
 numberContainer.addEventListener("click", (event) => {
-    if(checkFirstDisplay()){
-        clearDisplay()
-    }
-
-    if(!operatorUsed){
-        assignVariable("num1", event.target.textContent)
-        display.textContent += event.target.textContent
-    } else {
-        assignVariable("num2", event.target.textContent)
-        display.textContent += event.target.textContent
-        
-        
-        
-    }
-    
+   
+    numberClicked(event.target.textContent)
 })
 
 operatorContainer.addEventListener("click", (event) => {
@@ -180,6 +167,25 @@ function clearVariables(){
     operatorUsed = false;
 }
 
+function numberClicked(target){
+
+    if(checkFirstDisplay()){
+        clearDisplay()
+    }
+
+    if(!operatorUsed){
+        assignVariable("num1", target)
+        display.textContent += target
+    } else {
+        assignVariable("num2", target)
+        display.textContent += target
+        
+        
+        
+    }
+
+}
+
 function assignVariable(globalVariable, toAssign){
     if(globalVariable == "operator"){
         // assigned once an operator is clicked
@@ -254,12 +260,15 @@ document.addEventListener("keydown", (event) => {
     if(numberCheck.includes(event.key) ){
         console.log("Number Pressed "+ event.key)
         //Code To Display Numbers
+    
     } else if (operatorCheck.includes(event.key)){
         //Code To Display Operator or Calculate
         console.log("Operator Pressed " + event.key)
+    
     } else if (event.key === "Backspace"){
         //Delete Code
         console.log("Backspace Pressed " + event.key)
+    
     } else {
         //Not a button you can use
         alert("Not a Button than can be used by this calculator")
