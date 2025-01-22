@@ -269,13 +269,13 @@ function deleteDisplay(){
 const numberCheck = "1234567890"
 const operatorCheck = "+-/*"
 
-document.addEventListener("keydown", (event) => {
-
+document.addEventListener("keyup", (event) => {
+    
     if(numberCheck.includes(event.key) ){
         //Code To Display Numbers
         numberClicked(event.key)
     
-    } else if (operatorCheck.includes(event.key)){
+    } else if (operatorCheck.includes(event.key) || (operatorCheck.includes(event.key) && event.shiftKey)){
         //Code To Display Operator or Calculate
         console.log("Operator Pressed " + event.key)
         operatorPressed(event.key)
@@ -289,7 +289,8 @@ document.addEventListener("keydown", (event) => {
         equalsPressed()
     } else {
         //Not a button you can use
-        alert("Not a Button than can be used by this calculator")
+        // alert("Not a Button than can be used by this calculator")
+        console.log(event.key)
     }
 
 
