@@ -277,14 +277,14 @@ document.addEventListener("keyup", (event) => {
     
     } else if (operatorCheck.includes(event.key) || (operatorCheck.includes(event.key) && event.shiftKey)){
         //Code To Display Operator or Calculate
-        console.log("Operator Pressed " + event.key)
+        // console.log("Operator Pressed " + event.key)
         operatorPressed(event.key)
     
     } else if (event.key === "Backspace"){
         //Delete Code
         deletePressed()
     
-    } else if(event.key === "="){
+    } else if(event.key === "=" || event.key === "Enter"){
         //Equals Code
         equalsPressed()
     } else {
