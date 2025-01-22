@@ -30,7 +30,7 @@ function operate(){
         return add(num1, num2);
     } else if (operator == "-"){
         return subtract(num1,num2)
-    } else if (operator == "x"){
+    } else if (operator == "x" || operator == "*"){
         return multiply(num1,num2)
     } else if (operator == "/"){
         return divide(num1,num2);
@@ -267,7 +267,7 @@ function deleteDisplay(){
 
 //Keyboard Implementation
 const numberCheck = "1234567890"
-const operatorCheck = "+-/*"
+const operatorCheck = "+-/*x"
 
 document.addEventListener("keyup", (event) => {
     
