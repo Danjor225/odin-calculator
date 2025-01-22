@@ -260,6 +260,7 @@ document.addEventListener("keydown", (event) => {
     if(numberCheck.includes(event.key) ){
         console.log("Number Pressed "+ event.key)
         //Code To Display Numbers
+        numberClicked(event.key)
     
     } else if (operatorCheck.includes(event.key)){
         //Code To Display Operator or Calculate
