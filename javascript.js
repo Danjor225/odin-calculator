@@ -236,11 +236,13 @@ function checkZeroDivision(){
 }
 
 function checkDecimalError(){
-   
+   // Is a Decimal Present
     if(!num1Text.includes(".") && !num1Text.includes(".")){
         return false
     } else {
+        //Does num1 have a .
         if(num1Text.includes(".")){
+            //Does num1 have more than one .
             if(num1Text.match(/\./g).length > 1){
                 alert("Decimal Error")
                 return true
@@ -248,7 +250,8 @@ function checkDecimalError(){
         } else {
             return false
         }
-    
+        
+        // Repeat for num1 check for num2 
         if(num2Text.includes(".")){
             if(num2Text.match(/\./g).length > 1){
                 alert("Decimal Error")
