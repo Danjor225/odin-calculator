@@ -111,7 +111,7 @@ function checkAllNumbersAssigned(){
 
 function clearDisplay(){
     display.textContent = ""
-console.log("Display cleared")
+
 }
 
 function clearVariables(){
@@ -146,8 +146,7 @@ function equalsPressed(){
     if(!checkAllNumbersAssigned()){
         alert("Please enter your full calculation")
     } else {
-        if(checkZeroDivision()){
-            alert("Cannot divide by zero.")
+        if(checkZeroDivision() || checkDecimalError()){
             clearVariables()
             clearDisplay()
            } else {
@@ -179,7 +178,6 @@ function operatorPressed(target){
     else if (num2Text != ""){
 
        if(checkZeroDivision()){
-            alert("Cannot divide by zero.")
             clearVariables()
             clearDisplay()
        } else {
@@ -229,12 +227,39 @@ function calculation(){
 function checkZeroDivision(){
 
     if(num2Text == "0" && operator == "/"){
+        alert("Cannot divide by zero.")
         return true
-    } else if (num1Text == "." || num2Text == "."){
-        return true 
+        
     }else {
         return false
     }
+}
+
+function checkDecimalError(){
+   
+    if(!num1Text.includes(".") && !num1Text.includes(".")){
+        return false
+    } else {
+        if(num1Text.includes(".")){
+            if(num1Text.match(/\./g).length > 1){
+                alert("Decimal Error")
+                return true
+            }
+        } else {
+            return false
+        }
+    
+        if(num2Text.includes(".")){
+            if(num2Text.match(/\./g).length > 1){
+                alert("Decimal Error")
+                return true
+            }
+        } else {
+            return false
+        }
+    }
+    
+
 }
 
 function roundToFourDecimals(num){
@@ -266,7 +291,7 @@ function deleteDisplay(){
 }
 
 //Keyboard Implementation
-const numberCheck = "1234567890"
+const numberCheck = "1234567890."
 const operatorCheck = "+-/*x"
 
 document.addEventListener("keyup", (event) => {
