@@ -56,19 +56,8 @@ numberContainer.addEventListener("click", (event) => {
 operatorContainer.addEventListener("click", (event) => {
     // If = is pressed
     if(event.target.textContent == "="){
-        if(!checkAllNumbersAssigned()){
-            alert("Please enter your full calculation")
-        } else {
-            if(checkZeroDivision()){
-                alert("Cannot divide by zero.")
-                clearVariables()
-                clearDisplay()
-               } else {
-            calculation()
-            display.textContent = total;}
-           
-        }
-       
+        
+       equalsPressed()
     } 
     // If an operator is pressed
     else {
@@ -186,6 +175,22 @@ function numberClicked(target){
 
 }
 
+function equalsPressed(){
+    if(!checkAllNumbersAssigned()){
+        alert("Please enter your full calculation")
+    } else {
+        if(checkZeroDivision()){
+            alert("Cannot divide by zero.")
+            clearVariables()
+            clearDisplay()
+           } else {
+        calculation()
+        display.textContent = total;}
+       
+    }
+
+}
+
 function assignVariable(globalVariable, toAssign){
     if(globalVariable == "operator"){
         // assigned once an operator is clicked
@@ -270,6 +275,10 @@ document.addEventListener("keydown", (event) => {
         //Delete Code
         console.log("Backspace Pressed " + event.key)
     
+    } else if(event.key === "="){
+        //Equals Code
+        console.log("Equals Pressed " + event.key)
+        equalsPressed()
     } else {
         //Not a button you can use
         alert("Not a Button than can be used by this calculator")
